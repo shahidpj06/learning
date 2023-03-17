@@ -1,0 +1,95 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <style>
+        .notification {
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.notification:hover {
+  background: green;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -00px;
+ right: -00px;
+  padding: 3px 8px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+.pic{
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100%;
+}
+    </style>
+
+</head>
+<body class= "pic" background="{% static 'background.jpg' %}">
+<div class="navbar">
+  <a href="{% url 'home' %}">HOME</a>
+  <a href="admin">ADMIN_INBUILT</a>
+  <a href="{% url 'abbt' %}">ABOUT</a>
+  <div class="dropdown">
+  <button class="dropbtn">BLOGS<i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+            <a href="{% url 'add_blog' %}">ADD BLOGS</a>
+            <a href="{% url 'view_blog' %}">VIEW BLOGS</a>
+
+
+      </div>
+      </div>
+  <a href="{% url 'nws' %}">NEWS</a>
+  <a href="{% url 'crs' %}">COURSES</a>
+
+  <a href="{% url 'contact' %}">CONTACT</a>
+
+    <a href="{% url 'lgn' %}">LOGIN</a>
+  <div class="dropdown">
+    <button class="dropbtn">REGISTER<i class="fa fa-caret-down"></i></button>
+
+    <div class="dropdown-content">
+        <a href="{% url 'std' %}">Student</a>
+        <a href="{% url 'tchr' %}">Teacher</a>
+        <a href="{% url 'admn' %}">Admin</a>
+    </div>
+  </div>
+</div>
+<center>
+<div class="head">
+    <h1 style="color:white;font-family:lato">E-learning web portal</h1>
+    <h2 style="color:white;font-family:Alata">Best online education serves best society</h2>
+    <!--<h4>One Step Ahead This Season</h4>-->
+</div>
+<div style="color:blue;font-size:200%;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+</center>
+
+
+</body>
+
+</html>
+
